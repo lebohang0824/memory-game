@@ -1,0 +1,92 @@
+body {
+	margin: 0px;
+}
+
+.container {
+	width: 504px;
+	display: grid;
+	grid-gap: 1px;
+	margin: 10px auto;
+	border-radius: 5px;
+	background-color: #735D78;
+	border: solid 5px #735D78;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+}
+
+.container .item {
+	width: 100px;
+	height: 100px;
+}
+
+.container .cover {
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	position: absolute;
+	background-color: #E8C2CA;
+}
+
+.container img {
+	width: 100px;
+	height: 100px;
+}
+
+.board {
+	background-color: #735D78;
+}
+
+.main {
+	width: 504px;
+	margin: 0 auto;
+	padding: 5px 10px;
+}
+
+ul {
+	display: grid;
+	grid-gap: 5px;
+	font-size: 16px;
+    padding-inline-start: 5px;
+	grid-template-columns: 1fr 1fr 1fr;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ul li {
+	color: #555;
+	padding: 20px 0;
+	list-style: none;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.btn-start {
+	width: 200px;
+	display: block;
+	padding: 10px 0;
+	font-size: 18px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.profile {
+	width: 504px;
+	padding: 5px;
+	margin: 10px auto;
+	border-radius: 5px;
+	border: solid 1px #ccc;
+	background-color: #735D78;
+}
+
+#username {
+	width: 95%;
+	margin: 5px 0;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+#difficulty {
+	width: 100%;
+	margin: 5px 0;
+	border-radius: 5px;
+	padding: 10px;
+}
