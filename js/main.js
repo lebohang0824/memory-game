@@ -43,7 +43,7 @@ function unfold(cover) {
 	document.getElementById('moves').innerHTML = moves;
 	moves++;
 
-	// Game finished
+	// Game finish
 	if (total == gameLevel/2) {
 		setTimeout(() => {
 			alert('Congratulations you finished in: '+ formatSeconds(timer) + ' - '+ moves +': Moves');
@@ -55,6 +55,8 @@ function unfold(cover) {
 			total = 0;
 			moves = 1;
 			timer = 0;
+
+			toggleBtn();
 		}, 300);
 	}
 }
@@ -125,7 +127,7 @@ function formatSeconds(seconds){
 	return(seconds-(seconds%=60))/60+(9<seconds?':':':0')+seconds
 }
 
-// Start gane
+// Start game
 function startGame() {
 
 	// Get default name
@@ -154,6 +156,10 @@ function startGame() {
 	start = !start;
 
 	// Toggle
+	toggleBtn();
+}
+
+function toggleBtn() {
 	let btn = document.getElementsByClassName('btn-start')[0];
 	start ? btn.innerHTML = 'Pause' : btn.innerHTML = 'Start'
 } 
