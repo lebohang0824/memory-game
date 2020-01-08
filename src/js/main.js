@@ -1,3 +1,4 @@
+// Variables
 let match  = [];
 let timer  = 1;
 let total  = 0;
