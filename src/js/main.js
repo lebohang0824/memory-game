@@ -7,7 +7,55 @@ let start  = false;
 let gameLevel = 0;
 let images = [];
 
-function init() {
+// Start game
+function startGame() {
+
+	// Get default name
+	let name = document.getElementById('name');
+
+	if (name.innerHTML == 'John Doe' || name.innerHTML == '') {
+		// Get inputs
+		let newName = document.getElementById('username').value;
+		let level 	= document.getElementById('difficulty').value;
+
+		// New name not set
+		if (newName.trim() == '') return alert('Please enter your name');
+
+		// Set new name
+		name.innerHTML = newName;
+
+		// Set difficulty
+		setDifficultyLevel(level);
+		gameLevel = images.length;
+
+		// Hide profile
+		document.getElementsByClassName('profile')[0].style.display = 'none';
+	}
+
+	// Toggle pause
+	start = !start;
+
+	// Toggle
+	toggleBtn();
+}
+
+function toggleBtn() {
+	let btn = document.getElementsByClassName('btn-start')[0];
+	start ? btn.innerHTML = 'Pause' : btn.innerHTML = 'Start'
+} 
+
+function setDifficultyLevel(level) {
+	let count = 1;
+	for (let i = 0; i < level; i++) {
+		images.push(count);
+		images.push(count);
+		count++;
+	}
+
+	createCards();
+}
+
+function createCards() {
 	let parent = document.getElementsByClassName('container')[0];
 
 	for (let i = 0; i < images.length; i++) {
@@ -128,50 +176,7 @@ function formatSeconds(seconds){
 	return(seconds-(seconds%=60))/60+(9<seconds?':':':0')+seconds
 }
 
-// Start game
-function startGame() {
-
-	// Get default name
-	let name = document.getElementById('name');
-
-	if (name.innerHTML == 'John Doe' || name.innerHTML == '') {
-		// Get inputs
-		let newName = document.getElementById('username').value;
-		let level 	= document.getElementById('difficulty').value;
-
-		// New name not set
-		if (newName.trim() == '') return alert('Please enter your name');
-
-		// Set values
-		name.innerHTML = newName;
-
-		// Set difficulty
-		setDifficultyLevel(level);
-		gameLevel = images.length;
-
-		// Hide profile
-		document.getElementsByClassName('profile')[0].style.display = 'none';
-	}
-
-	// Toggle pause
-	start = !start;
-
-	// Toggle
-	toggleBtn();
-}
-
-function toggleBtn() {
-	let btn = document.getElementsByClassName('btn-start')[0];
-	start ? btn.innerHTML = 'Pause' : btn.innerHTML = 'Start'
-} 
-
-function setDifficultyLevel(level) {
-	let count = 1;
-	for (let i = 0; i < level; i++) {
-		images.push(count);
-		images.push(count);
-		count++;
-	}
-
-	init();
+module.exports = {
+	match, timer, total, moves, start, gameLevel, images,
+	createCards, unfold, startGame, toggleBtn, setDifficultyLevel
 }
