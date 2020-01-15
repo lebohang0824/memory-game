@@ -38,9 +38,5 @@ describe('Memory game', function () {
       
       expect(btn.innerHTML).toBe('Pause');
    });
-   
-   it('Should return John Doe', function () {
-      expect(main.total).toBe(0);
-   });
 
 });
